@@ -69,7 +69,7 @@ using HtmlAgilityPack;
 
             }
         }
-        return text;
+        return CleanFooter(text);
     }
 
 
@@ -78,6 +78,13 @@ using HtmlAgilityPack;
        return Regex.Replace(st, @"<[^>]*>", String.Empty);
     }
 
-     
+
+    public String CleanFooter(String st)
+    {
+       
+        return Regex.Replace(st, "Больше новостей в Telegram-канале «zakon.kz». Подписывайся!", String.Empty);
+        
+    }
+
 }
 

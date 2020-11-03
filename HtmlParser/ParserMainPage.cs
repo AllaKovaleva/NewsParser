@@ -61,7 +61,11 @@ namespace HtmlParser
         {
             var news = new List<Post>();
 
-            
+
+
+
+
+
             foreach (var url in urls)
             {
 
