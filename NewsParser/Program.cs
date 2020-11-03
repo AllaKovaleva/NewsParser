@@ -22,8 +22,11 @@ namespace NewsParser
 
              var parser = new ParserMainPage(Config.WEBPAGE, Config.XPATHMAIN, Config.XPATHDATE,
                                                            Config.XPATHTITLE,Config.XPATHTEXT);
-             var links= parser.GetNewsUrls(Config.XPATHMAIN);
-             var news = parser.GetNews(links);
+               
+                var links= parser.GetNewsUrls(Config.XPATHMAIN);
+
+                Console.WriteLine("получено ссылок: " + links.Count);
+                var news = parser.GetNews(links);
             
 
               
@@ -34,13 +37,13 @@ namespace NewsParser
             //var text = newsItemParser.ExtractText(Config.XPATHTITLE);
 
 
-            Console.WriteLine("получено ссылок: " + links.Count);
+          
                foreach(var n in news)
                 {
                     Console.WriteLine(n.ToString());
                 }
-            
 
+                Console.ReadLine();
             }
             catch (Exception e)
             { 
