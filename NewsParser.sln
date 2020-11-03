@@ -1,15 +1,14 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsParser", "NewsParser\NewsParser.csproj", "{356D51C5-4088-46C1-BBA9-89E0228507D5}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsParser", "NewsParser\NewsParser.csproj", "{356D51C5-4088-46C1-BBA9-89E0228507D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{59144F70-5CBE-4BB8-AAB3-1EDACC9AABF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DB", "DB\DB.csproj", "{59144F70-5CBE-4BB8-AAB3-1EDACC9AABF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Search", "Search\Search.csproj", "{45921592-B390-4BA9-AB8F-01D499011E6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsPosts", "NewsPosts\NewsPosts.csproj", "{9F8562DF-2DF8-4D39-AAA1-01C2FEDEED6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPosts", "NewsPosts\NewsPosts.csproj", "{9F8562DF-2DF8-4D39-AAA1-01C2FEDEED6C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlParser", "HtmlParser\HtmlParser.csproj", "{10CAF972-75FE-47AD-8D13-42E8C3F8D055}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlParser", "HtmlParser\HtmlParser.csproj", "{10CAF972-75FE-47AD-8D13-42E8C3F8D055}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +24,6 @@ Global
 		{59144F70-5CBE-4BB8-AAB3-1EDACC9AABF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59144F70-5CBE-4BB8-AAB3-1EDACC9AABF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59144F70-5CBE-4BB8-AAB3-1EDACC9AABF9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45921592-B390-4BA9-AB8F-01D499011E6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45921592-B390-4BA9-AB8F-01D499011E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45921592-B390-4BA9-AB8F-01D499011E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45921592-B390-4BA9-AB8F-01D499011E6E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9F8562DF-2DF8-4D39-AAA1-01C2FEDEED6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9F8562DF-2DF8-4D39-AAA1-01C2FEDEED6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F8562DF-2DF8-4D39-AAA1-01C2FEDEED6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,5 +32,11 @@ Global
 		{10CAF972-75FE-47AD-8D13-42E8C3F8D055}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10CAF972-75FE-47AD-8D13-42E8C3F8D055}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10CAF972-75FE-47AD-8D13-42E8C3F8D055}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95E2E12F-6FCD-4C58-8EE2-6BCE16DED847}
 	EndGlobalSection
 EndGlobal

@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Linq;
+using System.Data.SqlClient;
 using System.Net.Http;
 using HtmlAgilityPack;
 using HtmlParser;
 using DB;
 using NewsPosts;
-using Search;
 
 
 namespace NewsParser
@@ -14,34 +13,38 @@ namespace NewsParser
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(DateTime.Now + "_______________________1_____________________________");
+            Console.WriteLine("__________"+DateTime.Now + ":Запуск программы_________________");
+
+
+            var db = new DBConnector();
+            db.CreateTable();
+            db.LoadTODb();
+            db.ReadDb();
+            db.Recycle();
+
 
 
             try
             {
 
-             var parser = new ParserMainPage(Config.WEBPAGE, Config.XPATHMAIN, Config.XPATHDATE,
-                                                           Config.XPATHTITLE,Config.XPATHTEXT);
+             //var parser = new ParserMainPage(Config.WEBPAGE, Config.XPATHMAIN, Config.XPATHDATE,
+                //                                           Config.XPATHTITLE,Config.XPATHTEXT);
                
-                var links= parser.GetNewsUrls(Config.XPATHMAIN);
+                //var links= parser.GetNewsUrls(Config.XPATHMAIN);
 
-                Console.WriteLine("получено ссылок: " + links.Count);
-                var news = parser.GetNews(links);
+               // Console.WriteLine("получено ссылок: " + links.Count);
+               // var news = parser.GetNews(links);
             
 
               
 
-            //var newsItemParser = new ParserNewsItem(Config.WEBPAGE+links.First());
-            //var title = newsItemParser.ExtractTitle(Config.XPATHTITLE);
-            //var datetime = newsItemParser.ExtractDatetime(Config.XPATHTITLE);
-            //var text = newsItemParser.ExtractText(Config.XPATHTITLE);
 
 
           
-               foreach(var n in news)
-                {
-                    Console.WriteLine(n.ToString());
-                }
+               //foreach(var n in news)
+               // {
+               //     Console.WriteLine(n.ToString());
+               // }
 
                 Console.ReadLine();
             }

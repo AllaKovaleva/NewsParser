@@ -83,8 +83,10 @@ using HtmlAgilityPack;
     {
        
         var result= Regex.Replace(st, "Больше новостей в Telegram-канале «zakon.kz». Подписывайся!", String.Empty);
-
+      
         return result;
+
+
     }
 
 }
