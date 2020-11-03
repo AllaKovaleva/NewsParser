@@ -59,25 +59,21 @@ namespace HtmlParser
 
         public List<Post> GetNews(List<String> urls)
         {
-            var data = new List<Post>();
+            var news = new List<Post>();
 
-            var url = urls.First();
-           // foreach (var url in urls)
-            //{
+            
+            foreach (var url in urls)
+            {
 
                 var newsItemParser = new ParserNewsItem(UrlMain + url);
                 var title = newsItemParser.ExtractTitle(XpathTitle);
                 var datetime = newsItemParser.ExtractDatetime(XpathDatetime);
                 var text = newsItemParser.ExtractText(XpathText);
-
-                Console.WriteLine(title);
-                Console.WriteLine(datetime);
-                Console.WriteLine(text);
-                var newsItem = new Post("");
-                data.Add(newsItem);
-           // }
+                var newsItem = new Post(title, datetime, text, UrlMain + url);
+                news.Add(newsItem);
+            }
             
-            return data;
+            return news;
         }
 
     }

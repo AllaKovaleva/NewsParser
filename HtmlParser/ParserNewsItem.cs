@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using HtmlAgilityPack;
 
@@ -7,7 +8,7 @@ using HtmlAgilityPack;
     public class ParserNewsItem
     {
 
-    private HtmlDocument HtmlFile { get; set; }
+    private HtmlDocument HtmlFile;
 
 
 
@@ -19,27 +20,42 @@ using HtmlAgilityPack;
     }
 
 
-    
-
-
     public String ExtractTitle(String xPath)
         {
         HtmlNode node = HtmlFile.DocumentNode.SelectSingleNode(xPath);
         var title = node.InnerHtml;
-            return title;
+        return title;
         }
 
-    public String ExtractDatetime(String xPath)
+    public String ExtractDatetimeStr(String xPath)
     {  
         var node = HtmlFile.DocumentNode.SelectSingleNode(xPath);
         var dateStr= node.InnerHtml;
         dateStr = CleanTags(dateStr);
-         return dateStr;
+        return dateStr;
+    }
+
+    public DateTime ExtractDatetime(String xPath)
+    {
+        var node = HtmlFile.DocumentNode.SelectSingleNode(xPath);
+        var dateStr = node.InnerHtml;
+        dateStr = CleanTags(dateStr);
+
+        var date = ParseDate(dateStr);
+        
+        return date;
     }
 
 
+    public DateTime ParseDate(String str)
+    {
+        var cultureInfo = new CultureInfo("ru-RU");
+      
+        var dateTime = DateTime.Parse(str, cultureInfo);
+        return dateTime;
+    }
 
-   
+
 
     public String ExtractText(String xPath)
     {
@@ -49,8 +65,8 @@ using HtmlAgilityPack;
         {
             foreach (HtmlNode node in nodes)
             {
-                 text = text+CleanTags(node.InnerHtml);
-                Console.WriteLine(text + " text");
+                text = text+ CleanTags(node.InnerHtml);
+
             }
         }
         return text;
@@ -61,5 +77,7 @@ using HtmlAgilityPack;
     {
        return Regex.Replace(st, @"<[^>]*>", String.Empty);
     }
+
+     
 }
 
