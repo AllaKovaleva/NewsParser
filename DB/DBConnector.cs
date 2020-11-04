@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Dynamic;
+
 
 namespace DB
 {
@@ -37,14 +37,42 @@ namespace DB
             cmd.Parameters.Add(new SqlParameter("@TEXT", System.Data.SqlDbType.VarChar, 8000)).Value = post.Text;
             cmd.Prepare();
             cmd.ExecuteNonQuery();
-            Console.WriteLine("inserting");
-
-        }
+         }
 
         public List<Post> ReadDb()
         {
-            Console.WriteLine("reading db");
             var sql = "SELECT * FROM NEWSITEM";
+            var cmd = new SqlCommand(sql, connect);
+            using SqlDataReader rdr = cmd.ExecuteReader();
+            var news = new List<Post>();
+            while (rdr.Read())
+            { 
+                var post = new Post(rdr.GetString(0), rdr.GetDateTime(1), rdr.GetString(2), rdr.GetString(3));
+                news.Add(post);
+            }
+            return news;
+        }
+
+
+        public List<Post> ReadDb(string substring)
+        {
+            var sql = String.Format("SELECT * FROM NEWSITEM WHERE TEXT LIKE '%{0}%'", substring);
+            var cmd = new SqlCommand(sql, connect);
+            using SqlDataReader rdr = cmd.ExecuteReader();
+            var news = new List<Post>();
+            while (rdr.Read())
+            {
+                Console.WriteLine(rdr.GetString(0));
+                var post = new Post(rdr.GetString(0), rdr.GetDateTime(1), rdr.GetString(2), rdr.GetString(3));
+                news.Add(post);
+            }
+            return news;
+        }
+
+        public List<Post> ReadDb(DateTime from, DateTime to)
+        { 
+            var sql = String.Format("SELECT * FROM NEWSITEM WHERE DATE BETWEEN '{0}' and '{1}'", from.ToString("yyyy/mm/dd hh:mm:ss"), to.ToString("yyyy/mm/dd hh:mm:ss"));
+            //Console.WriteLine("reading db"+sql); 
             var cmd = new SqlCommand(sql, connect);
             using SqlDataReader rdr = cmd.ExecuteReader();
             var news = new List<Post>();
