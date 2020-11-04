@@ -69,7 +69,7 @@ using HtmlAgilityPack;
 
             }
         }
-        return CleanFooter(text);
+        return CleanAddedText(text);
     }
 
 
@@ -79,11 +79,11 @@ using HtmlAgilityPack;
     }
 
 
-    public String CleanFooter(String st)
+    public String CleanAddedText(String st)
     {
        
         var result= Regex.Replace(st, "Больше новостей в Telegram-канале «zakon.kz». Подписывайся!", String.Empty);
-      
+        result = Regex.Replace(result, "&mdash;", string.Empty);
         return result;
 
 

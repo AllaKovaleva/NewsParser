@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using HtmlAgilityPack;
 using NewsPosts;
 
@@ -61,12 +59,6 @@ namespace HtmlParser
         {
             var news = new List<Post>();
 
-
-
-
-
-
-
             foreach (var url in urls)
             {
 
@@ -74,7 +66,7 @@ namespace HtmlParser
                 var title = newsItemParser.ExtractTitle(XpathTitle);
                 var datetime = newsItemParser.ExtractDatetime(XpathDatetime);
                 var text = newsItemParser.ExtractText(XpathText);
-                var newsItem = new Post(title, datetime, text, UrlMain + url);
+                var newsItem = new Post(title, datetime,  UrlMain + url, text);
                 news.Add(newsItem);
             }
             
