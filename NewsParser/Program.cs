@@ -25,7 +25,7 @@ namespace NewsParser
             bool read = true;
             while (read)
             {
-                Console.WriteLine("выберите действие: load all| search val| dates from to | topten |exit");
+                Console.WriteLine("Выберите действие: load all| search val | topten |exit");
                 var prm= Console.ReadLine();
                 switch (prm.Substring(0, 4))
                 {
@@ -34,7 +34,7 @@ namespace NewsParser
                         break;
                     case "load"://readall
                         List<Post> resultsFromDb = handler.ReadNews();
-                        Console.WriteLine(resultsFromDb.Count + " новоостей загружено из БД");
+                        Console.WriteLine(resultsFromDb.Count + " новостей загружено из БД");
                         foreach (var r in resultsFromDb) {
                             Console.WriteLine(r.ToString());
                         }

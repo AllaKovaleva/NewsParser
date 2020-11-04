@@ -71,8 +71,7 @@ namespace DB
 
         public List<Post> ReadDb(DateTime from, DateTime to)
         { 
-            var sql = String.Format("SELECT * FROM NEWSITEM WHERE DATE BETWEEN '{0}' and '{1}'", from.ToString("yyyy/mm/dd hh:mm:ss"), to.ToString("yyyy/mm/dd hh:mm:ss"));
-            //Console.WriteLine("reading db"+sql); 
+            var sql = String.Format("SELECT * FROM NEWSITEM WHERE DATE BETWEEN '{0}' and '{1}'", from.ToString("yyyy/mm/dd hh:mm:ss"), to.ToString("yyyy/mm/dd hh:mm:ss")); 
             var cmd = new SqlCommand(sql, connect);
             using SqlDataReader rdr = cmd.ExecuteReader();
             var news = new List<Post>();
